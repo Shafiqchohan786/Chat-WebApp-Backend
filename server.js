@@ -43,7 +43,9 @@ const server = createServer(app);
 // Socket.IO setup
 const io = new Server(server, {
   cors: {
-    origin: '*', // Update with your frontend domain for production
+    origin: 'https://chat-web-app-frontend.vercel.app', 
+    credentials: true,
+    // Update with your frontend domain for production
     methods: ['GET', 'POST'],
   },
 });
