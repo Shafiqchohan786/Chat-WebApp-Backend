@@ -43,9 +43,7 @@ const server = createServer(app);
 // Socket.IO setup
 const io = new Server(server, {
   cors: {
-    origin: 'https://chat-web-app-frontend.vercel.app', 
-    credentials: true,
-    // Update with your frontend domain for production
+    origin: '*', // Update with your frontend domain for production
     methods: ['GET', 'POST'],
   },
 });
@@ -99,8 +97,8 @@ socket.on('sendMessage', (data) => {
   })
 })
 // Start the server
-// server.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT} in ${NODE_ENV} mode`);
-// });
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT} in ${NODE_ENV} mode`);
+});
 
-export default app;    //
+// export default app;    //
